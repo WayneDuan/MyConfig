@@ -5,7 +5,7 @@ TTE 解锁高级特权
 QuantumultX:
 
 [rewrite_local]
-^https:\/\/(api\.revenuecat\.com\/v\d\/subscribers|vsco\.co\/api\/subscriptions\/\d\.\d\/user-subscriptions)\/ url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/tte.js?token=GHSAT0AAAAAABSOQNH3XRWMEB6GVS4HJ2DAYR6NSNA
+^https:\/\/(api\.revenuecat\.com\/v\d\/subscribers|vsco\.co\/api\/subscriptions\/\d\.\d\/user-subscriptions)\/ url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/tte.js
 
 [mitm]
 hostname = api.revenuecat.com
@@ -14,7 +14,7 @@ hostname = api.revenuecat.com
 Surge4 or Loon: 
 
 [Script]
-http-response ^https:\/\/(api\.revenuecat\.com\/v\d\/subscribers|vsco\.co\/api\/subscriptions\/\d\.\d\/user-subscriptions)\/ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/tte.js?token=GHSAT0AAAAAABSOQNH3XRWMEB6GVS4HJ2DAYR6NSNA
+http-response ^https:\/\/(api\.revenuecat\.com\/v\d\/subscribers|vsco\.co\/api\/subscriptions\/\d\.\d\/user-subscriptions)\/ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/tte.js
 
 [MITM]
 hostname = api.revenuecat.com
