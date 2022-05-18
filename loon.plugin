@@ -10,7 +10,8 @@ http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttention
 [URL Rewrite]
 ^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace Authorization 0547064bb9a5557d332023ab513a2e3784e38dc54f844f53cbb804d3a687c48b6c2e670c6aba3e564f
 ^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
-
-
+^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace X-Playback-Session-Id E15F154E-607C-4D37-YQC6-665A098CB666
+^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
+\/t\w{4}\/\d\/t\/ 307 /token/5d10208372cbd649de04b9731c1b55db/t/
 [Mitm]
-hostname = zjgeo.eqobc.com, xnour.xonap.com, opzzy.kefsww.com, tqrbq.mpckv.com,sjapp.o3aqqc.work
+hostname = zjgeo.eqobc.com, xnour.xonap.com, opzzy.kefsww.com, tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com
