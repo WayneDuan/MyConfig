@@ -20,4 +20,4 @@ http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttention
 ^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
 \/t\w{4}\/\d\/t\/ 307 /token/5d10208372cbd649de04b9731c1b55db/t/
 [Mitm]
-hostname = zjgeo.eqobc.com, xnour.xonap.com, opzzy.kefsww.com, tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com
+hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,aoscdn.com
