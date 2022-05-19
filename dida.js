@@ -7,12 +7,7 @@ QuantumultX:
 [mitm]
 hostname = dida365.com
 ***************************
-Surge4 or Loon: 
-[Script]
-http-response ^https:\/\/dida365.com\/api/v2/user/status requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js
-[MITM]
-hostname = dida365.com
-**************************/
+
 var body = $response.body;
 var objc = JSON.parse(body);
 var timestamp = (new Date()).valueOf();
