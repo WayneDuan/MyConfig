@@ -16,7 +16,7 @@ hostname = dida365.com
 var body = $response.body;
 var objc = JSON.parse(body);
 var timestamp = (new Date()).valueOf();
-objc = [
+objc = 
       {
         "userId": "1013918876",
   "username": "0lusmpfe@user.dida365.com",
@@ -29,8 +29,8 @@ objc = [
   "timeStamp": timestamp,
   "pro": true,
   "ds": true
-      }
-    ];
+      };
+    
 body = JSON.stringify(objc);
 
 $done({ 
