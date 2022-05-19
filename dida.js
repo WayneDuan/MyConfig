@@ -13,6 +13,7 @@ http-response ^https:\/\/dida365.com\/api/v2/user/status requires-body=1,max-siz
 [MITM]
 hostname = dida365.com
 **************************/
+var body = $response.body;
 var objc = JSON.parse(body);
 objc = [
       {
@@ -29,8 +30,7 @@ objc = [
   "ds": true
       }
     ];
-    body = JSON.stringify(objc);
-
+body = JSON.stringify(objc);
 
 $done({ 
     body 
