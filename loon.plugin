@@ -4,6 +4,7 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
+http-response ^https:\/\/dida365.com\/api/v2/user/status script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js, requires-body=true, timeout=10, tag=解锁滴答清单
 http-response ^https://(.+).aoscdn.com/base/vip/client/authorizations script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
 http-response ^https://(.+).aoscdn.com/app/aimage/usersInfo script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
 # 解锁酷我音乐会员下载
@@ -20,4 +21,4 @@ http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttention
 ^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
 \/t\w{4}\/\d\/t\/ 307 /token/5d10208372cbd649de04b9731c1b55db/t/
 [Mitm]
-hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com
+hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com
