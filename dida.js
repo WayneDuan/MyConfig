@@ -7,6 +7,7 @@ QuantumultX:
 [mitm]
 hostname = dida365.com
 ***************************
+*/
 
 var body = $response.body;
 var objc = JSON.parse(body);
