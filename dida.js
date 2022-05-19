@@ -15,19 +15,20 @@ hostname = dida365.com
 **************************/
 var body = $response.body;
 var objc = JSON.parse(body);
+var timestamp = (new Date()).valueOf();
 objc = [
       {
         "userId": "1013918876",
   "username": "0lusmpfe@user.dida365.com",
-  "proEndDate": "2099-01-01T00:00:00.000+0000",
-  "needSubscribe": true,
+  "proEndDate": "2029-12-03T00:00:00.000+0000",
+  "needSubscribe": false,
   "inboxId": "inbox1013918876",
   "teamUser": false,
   "activeTeamUser": false,
-  "freeTrial": false,
-  "timeStamp": 1652951915934,
+  "freeTrial": true,
+  "timeStamp": timestamp,
   "pro": true,
-  "ds": true
+  "ds": false
       }
     ];
 body = JSON.stringify(objc);
