@@ -9,12 +9,12 @@ hostname = dida365.com
 ***************************
 Surge4 or Loon: 
 [Script]
-http-response ^https:\/\/(api\.revenuecat\.com\/v\d\/subscribers|vsco\.co\/api\/subscriptions\/\d\.\d\/user-subscriptions)\/ requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/tte.js
+http-response ^https:\/\/dida365.com\/api/v2/user/status requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js
 [MITM]
-hostname = api.revenuecat.com
+hostname = dida365.com
 **************************/
 var objc = JSON.parse(body);
-objc.data = [
+objc = [
       {
         "userId": "1013918876",
   "username": "0lusmpfe@user.dida365.com",
