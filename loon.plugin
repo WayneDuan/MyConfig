@@ -19,8 +19,8 @@ http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttention
 ^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
 ^https?:\/\/.*mt.*\.com\/api\/Video\/m3u8\/id header-replace X-Playback-Session-Id E15F154E-607C-4D37-YQC6-665A098CB666
 ^https?:\/\/.*mt.*\.com\/api\/Video\/m3u8\/id header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
-^https?:\/\/(.+).huajibh\.com\/api\/Video\/m3u8\/id header-replace X-Playback-Session-Id E15F154E-607C-4D37-YQC6-665A098CB666
-^https?:\/\/(.+).huajibh\.com\/api\/Video\/m3u8\/id header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
+^https?:\/\/(.+).huajibh.com\/api\/Video\/m3u8\/id header-replace X-Playback-Session-Id E15F154E-607C-4D37-YQC6-665A098CB666
+^https?:\/\/(.+).huajibh.com\/api\/Video\/m3u8\/id header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
 \/t\w{4}\/\d\/t\/ 307 /token/5d10208372cbd649de04b9731c1b55db/t/
 [Mitm]
 hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com
