@@ -54,7 +54,7 @@ function _writeHttpHeader() {
     let conHost = $session.conHost
     let conPort = $session.conPort
 
-    var header = `CONNECT ${conHost}:${conPort}@gw.alicdn.com HTTP/1.1\r\nHost:gw.alicdn.com\r\nUser-Agent: baiduboxapp\r\nX-T5-Auth:YTY0Nzlk\r\nProxy-Connection: Keep-Alive\r\n\r\n`
+    var header = `CONNECT ${conHost}:${conPort} HTTP/1.1\r\nHost:gw.alicdn.com\r\nUser-Agent: baiduboxapp\r\nX-T5-Auth:YTY0Nzlk\r\nProxy-Connection: Keep-Alive\r\n\r\n`
     console.log(header)
     $tunnel.write($session, header)
 }
