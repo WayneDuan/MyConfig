@@ -25,4 +25,4 @@ http-request ^https?:\/\/ys\.huajibh\.com\/api\/video script-path=https://raw.gi
 ^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
 
 [Mitm]
-hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
+hostname = %APPEND% zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
