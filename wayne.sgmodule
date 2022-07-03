@@ -23,5 +23,5 @@
 [URL Rewrite]
 ^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
 
-[Mitm]
+[MITM]
 hostname = %APPEND% sjapp.o3aqqc.work,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
