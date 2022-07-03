@@ -1,21 +1,26 @@
 
-#!name=Bilibili
-#!desc=BiliBili去广告
-
-[Rule]
-URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
-URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
+#!name=解锁免费视频
+#!desc=解锁免费视频
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
-# 首页Tab
-http-response https://app.bilibili.com/x/resource/show/tab\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20tab.js,tag=哔哩哔哩首页Tab
-http-response https://app.bilibili.com/x/v2/feed/index\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20feed.js,tag=哔哩哔哩首页Tab
-# 个人中心
-http-response https://app.bilibili.com/x/v2/account/mine\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20account.js,tag=哔哩哔哩个人中心(精简)
-http-response https://app.bilibili.com/x/v2/view\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20view%20relate.js,tag=哔哩哔哩个人中心(精简)
-http-response https://api.bilibili.com/x/v2/reply/main\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20reply.js,tag=哔哩哔哩个人中心(精简)
-http-response https://api.live.bilibili.com/xlive/app-room/v1/index/getInfoByRoom\?access_key requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20live.js,tag=哔哩哔哩直播
-Bili Region = type=http-response,pattern=https:\/\/api\.bilibili\.com\/pgc\/view\/app\/season\?access_key,requires-body=1,max-size=0,control-api=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
+http-response ^https:\/\/dida365.com\/api/v2/user/status script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js, requires-body=true, timeout=10, tag=解锁滴答清单
+http-response ^https://(.+).aoscdn.com/base/vip/client/authorizations script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
+http-response ^https://(.+).aoscdn.com/app/aimage/usersInfo script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
+# 解锁酷我音乐会员下载
+http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js, requires-body=true, timeout=10, tag=酷我VIP下载
+http-response ^http://(.+).kuwo.cn(/v2/api/user/info|/a.p|/vip/v2/user/vip) script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js, requires-body=true, timeout=10, tag=酷我VIP
+http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js, requires-body=true, timeout=10, tag=美图秀秀VIP
+http-response ^https?:\/\/.*\.com\/api\/app\/user\/info script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornComicsCrack.js, requires-body=true, timeout=10, tag=漫画解锁
+http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttentionCnt) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SJSPCrack.js, requires-body=true, timeout=10, tag=色戒
+http-request ^https?:\/\/ys\.huajibh\.com\/api\/video script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PleasantVideoCrack.js, timeout=10, tag=悦色视频解锁会员
 
-[MITM]
-hostname = %APPEND% www.bilibili.com, api.bilibili.com, app.bilibili.com, api.live.bilibili.com
+
+[URL Rewrite]
+^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace Authorization 0547064bb9a5557d332023ab513a2e3784e38dc54f844f53cbb804d3a687c48b6c2e670c6aba3e564f
+^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
+^https?:\/\/(.+).huajibh.com\/api/video/m3u8/id.+ header-replace X-Playback-Session-Id E15F154E-607C-4D37-YQC6-665A098CB666
+^https?:\/\/(.+).huajibh.com\/api/video/m3u8/id.+ header-replace User-Agent Flow/1.0 NetType/4g Companyid/4000
+
+[Mitm]
+hostname = zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
