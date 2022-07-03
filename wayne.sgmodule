@@ -11,7 +11,6 @@ http-response ^https://(.+).aoscdn.com/app/aimage/usersInfo script-path=https://
 http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js, requires-body=true, timeout=10, tag=酷我VIP下载
 http-response ^http://(.+).kuwo.cn(/v2/api/user/info|/a.p|/vip/v2/user/vip) script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js, requires-body=true, timeout=10, tag=酷我VIP
 http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js, requires-body=true, timeout=10, tag=美图秀秀VIP
-http-response ^https?:\/\/.*\.com\/api\/app\/user\/info script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornComicsCrack.js, requires-body=true, timeout=10, tag=漫画解锁
 http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttentionCnt) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SJSPCrack.js, requires-body=true, timeout=10, tag=色戒
 http-request ^https?:\/\/ys\.huajibh\.com\/api\/video script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PleasantVideoCrack.js, timeout=10, tag=悦色视频解锁会员
 
@@ -25,4 +24,4 @@ http-request ^https?:\/\/ys\.huajibh\.com\/api\/video script-path=https://raw.gi
 ^https?:\/\/sjapp\.o3aqqc\.work\/(home\/message\/get|user\/getUserActivity|activityDialog\/getActivityDialogList|banner\/list2\?location=0|game\/programGameList) reject-200
 
 [Mitm]
-hostname = %APPEND% zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,sjapp.o3aqqc.work,*mt*.com,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
+hostname = %APPEND% sjapp.o3aqqc.work,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com
