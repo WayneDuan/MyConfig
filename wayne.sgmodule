@@ -4,15 +4,15 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
-http-response ^https:\/\/dida365.com\/api/v2/user/status script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js, requires-body=true, timeout=10, tag=解锁滴答清单
-http-response ^https://(.+).aoscdn.com/base/vip/client/authorizations script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
-http-response ^https://(.+).aoscdn.com/app/aimage/usersInfo script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, requires-body=true, timeout=10, tag=傲软抠图解锁会员
+解锁滴答清单=type=http-response,pattern=^https:\/\/dida365.com\/api/v2/user/status,requires-body=1,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js, script-udate-interval=0 
+傲软抠图解锁会员=type=http-response,pattern=http-response ^https://(.+).aoscdn.com/base/vip/client/authorizations,requires-body=1, script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js, script-udate-interval=0 
+=type=http-response,pattern=^https://(.+).aoscdn.com/app/aimage/usersInfo ,requires-body=1,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/arkt.js,  script-udate-interval=0 
 # 解锁酷我音乐会员下载
-http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js, requires-body=true, timeout=10, tag=酷我VIP下载
-http-response ^http://(.+).kuwo.cn(/v2/api/user/info|/a.p|/vip/v2/user/vip) script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js, requires-body=true, timeout=10, tag=酷我VIP
-http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js, requires-body=true, timeout=10, tag=美图秀秀VIP
-http-response ^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttentionCnt) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SJSPCrack.js, requires-body=true, timeout=10, tag=色戒
-http-request ^https?:\/\/ys\.huajibh\.com\/api\/video script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PleasantVideoCrack.js, timeout=10, tag=悦色视频解锁会员
+酷我VIP下载=type=http-response,pattern=^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver,requires-body=1, script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js, requires-body=true, script-udate-interval=0 
+酷我VIP下载=type=http-response,pattern=^http://(.+).kuwo.cn(/v2/api/user/info|/a.p|/vip/v2/user/vip) ,requires-body=1,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js, requires-body=true, script-udate-interval=0 
+美图秀秀VIP=type=http-response,pattern=^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ ,requires-body=1,script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js, script-udate-interval=0 
+色戒=type=http-response,pattern=^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttentionCnt) ,requires-body=1,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SJSPCrack.js, script-udate-interval=0 
+悦色视频解锁会员=type=http-response,pattern=^https?:\/\/ys\.huajibh\.com\/api\/video ,requires-body=1,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PleasantVideoCrack.js, script-udate-interval=0 
 
 
 [Header Rewrite]
