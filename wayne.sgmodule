@@ -1,6 +1,6 @@
 
 #!name=解锁免费视频
-#!desc=解锁免费视频
+#!desc=解锁视频和软件破解VIP等
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
@@ -14,10 +14,9 @@
 色戒= type=http-response,pattern=^https?:\/\/sjapp\.o3aqqc\.work\/user\/(info|fansAndUpAndAttentionCnt),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SJSPCrack.js,script-update-interval=0 
 欲漫涩解锁会员视频= type=http-request,pattern=^https?:\/\/.*\.com\/api\/app\/media,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornVideosCrack.js,script-update-interval=0
 欲漫涩解锁会员漫画= type=http-response,pattern=^https?:\/\/.*\.com\/api\/app\/user\/info,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornComicsCrack.js,script-update-interval=0
-香蕉视频解锁无限次数= type=http-response,pattern=^https?:\/\/.+\/(index|ucp\/index|vod\/(show|reqplay\/)|getGlobalData),requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/BananaVideoCrack.js,script-update-interval=0
 
 [MITM]
-hostname = %APPEND% sjapp.o3aqqc.work,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com,zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com,o0o0plpl11.xinai99.com
+hostname = %APPEND% sjapp.o3aqqc.work,*.huajibh.com,api.xiuxiu.meitu.com,h5.xiuxiu.meitu.com,*.kuwo.cn,*.aoscdn.com,dida365.com,ys.huajibh.com,zjgeo.eqobc.com,xnour.xonap.com,opzzy.kefsww.com,tqrbq.mpckv.com
 
 [Header Rewrite]
 ^https?:\/\/sjapp\.o3aqqc\.work\/mov\/browse header-replace Authorization 0547064bb9a5557d332023ab513a2e3784e38dc54f844f53cbb804d3a687c48b6c2e670c6aba3e564f
