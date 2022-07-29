@@ -1,0 +1,2 @@
+[Script]
+wifi切换模式 = type=event,event-name=network-changed,script-path=wifi-changed.js
