@@ -1,9 +1,9 @@
-const WIFI_DONT_NEED_PROXYS = ['xiaomi_Alan_5G_1'];
-const CURRENT_WIFI_SSID_KEY = 'current_wifi_ssid';
+const WIFI_PROXYS = ['@HW'];
+const CURRENT_WIFI_SSID_KEY = '';
 
 if (wifiChanged()) {
-  const mode = WIFI_DONT_NEED_PROXYS.includes($network.wifi.ssid)
-    ? 'direct'
+  const mode = WIFI_PROXYS.includes($network.wifi.ssid)
+    ? 'global-proxy'
     : 'rule';
   $surge.setOutboundMode(mode);
   $notification.post(
