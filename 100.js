@@ -14,15 +14,7 @@
 hostname = *.10010.com
 
 
-var objc = JSON.parse($response.body);
-console.log(JSON.stringify(objc));
-if (objc) {
-    objc.data.otherProductInfo.forEach(
-        (x) => {
-            if (x.cancelFlag == '0') {
-                x.cancelFlag = '4';
-            }
-        }
-    );
-}
-$done({ body: JSON.stringify(objc) });
+
+var bob=$response.body;
+console.log(bob);
+$done(bob);
