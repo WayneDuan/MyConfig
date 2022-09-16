@@ -12,6 +12,19 @@
 
 [mitm] 
 hostname = *.10010.com
+*
+*
+*/
 
-
-$done({$response.body});
+var objc = JSON.parse($response.body);
+console.log(JSON.stringify(objc));
+if (objc) {
+    objc.data.otherProductInfo.forEach(
+        (x) => {
+            if (x.cancelFlag == '0') {
+                x.cancelFlag = '4';
+            }
+        }
+    );
+}
+$done({ JSON.stringify(objc) });
