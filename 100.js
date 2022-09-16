@@ -13,7 +13,15 @@
 [mitm] 
 hostname = *.10010.com
 
-var body = $response.body;
-var hack = "cancelFlag":"0";
-body = body.replace(hack,'"cancelFlag":"4"');
-$done({body});
+
+var objc = JSON.parse($response.body);
+
+objc.data.otherProductInfo.forEach(
+    (x) => {
+      if(x.cancelFlag==0){
+      x.cancelFlag=4;
+      }
+    }
+  );
+
+$done({body: JSON.stringify(objc)});
