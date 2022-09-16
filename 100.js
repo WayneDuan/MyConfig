@@ -17,4 +17,4 @@ hostname = *.10010.com
 
 var bob=$response.body;
 console.log(bob);
-$done(bob);
+$done({bob});
