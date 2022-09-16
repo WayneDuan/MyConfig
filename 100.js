@@ -13,6 +13,7 @@
 [mitm] 
 hostname = *.10010.com
 
+
 var bob=$response.body;
 console.log(bob);
-$done({body:bob});
+$done({body:JSON.stringify(bob)});
