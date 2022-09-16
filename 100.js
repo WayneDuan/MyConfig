@@ -14,6 +14,5 @@
 hostname = *.10010.com
 
 
-var bob=$response.body;
-console.log(bob);
-$done({body:JSON.stringify(bob)});
+var body=$response.body;
+$done({body});
