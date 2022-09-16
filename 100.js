@@ -16,4 +16,4 @@ hostname = *.10010.com
 var body = $response.body;
 var hack = "cancelFlag":"0";
 body = body.replace(hack,'"cancelFlag":"4"');
-$done({body: JSON.stringify(objc)});
+$done({body});
