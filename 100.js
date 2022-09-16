@@ -23,5 +23,5 @@ objc.data.otherProductInfo.forEach(
       }
     }
   );
-
+ console.log(objc);
 $done({body: JSON.stringify(objc)});
