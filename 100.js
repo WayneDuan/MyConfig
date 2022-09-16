@@ -14,5 +14,4 @@
 hostname = *.10010.com
 
 
-var body=$response.body;
-$done({body});
+$done({$response.body});
