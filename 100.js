@@ -7,7 +7,7 @@
 *******************************
 [rewrite_local]
 
-^https://m.client.10010.com/servicebusiness/newOrdered/queryOrderRelationship url script-response-body https://raw.githubusercontent.com/yqc007/QuantumultX/master/91GVCrack.js
+^https://m.client.10010.com/servicebusiness/newOrdered/queryOrderRelationship url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/100.js
 
 
 [mitm] 
