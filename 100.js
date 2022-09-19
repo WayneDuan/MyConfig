@@ -21,7 +21,7 @@ var objc = JSON.parse(body);
 objc.data.otherProductInfo.forEach(
         (x) => {
             if (x.cancelFlag == '0') {
-                x.cancelFlag = '4';
+                x.cancelFlag = '1';
             }
         }
     );
