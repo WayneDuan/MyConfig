@@ -6,7 +6,7 @@
 [Script]
 http-response ^https:\/\/dida365.com\/api/v2/user/status script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js, requires-body=true, timeout=10, tag=解锁滴答清单
 http-response ^https?:\/\/.*\.com\/api\/app\/user\/info script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornComicsCrack.js, requires-body=true, timeout=10, tag=漫画解锁
-http-request ^https?:\/\/.*\.com\/api\/app\/media script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornVideosCrack.js,requires-body=true,timeout=10, tag=漫画视频解锁
+http-request ^https?:\/\/.*\.com\/api\/app\/media script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/PornVideosCrack.js,timeout=10, tag=漫画视频解锁
 
 
 [URL Rewrite]
