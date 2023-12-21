@@ -3,7 +3,7 @@
 ***************************
 QuantumultX:
 [rewrite_local]
-^https?:\/\/.*megdnvg.*\.cn\/ucp\/index url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/dida.js
+^https?:\/\/.*megdnvg.*\.cn\/ucp\/index url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xj.js
 [mitm]
 hostname = *.megdnvg.cn
 ***************************
