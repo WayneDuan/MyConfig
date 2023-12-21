@@ -5,7 +5,7 @@ QuantumultX:
 [rewrite_local]
 ^https?:\/\/.*megdnvg.*\.cn\/ucp\/index url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xj.js
 ^https?:\/\/.*megdnvg.*\.cn\/index url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xjad.js
-^https?:\/\/.*megdnvg.*\.cn\/getGlobalData url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xjjd.js
+^https?:\/\/.*megdnvg.*\.cn\/getGlobalData url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xxjd.js
 ^https?:\/\/.*megdnvg.*\.cn\/game\/(games|broadcasts) url script-response-body https://raw.githubusercontent.com/WayneDuan/MyConfig/main/xjgame.js
 [mitm]
 hostname = *.megdnvg.cn
