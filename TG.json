@@ -1,0 +1,6 @@
+{
+      "name": "TG搜 | PAN",
+      "type": 3,
+      "api": "csp_tgs",
+      "ext": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/tgs.js"
+    }
