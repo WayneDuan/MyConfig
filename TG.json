@@ -1,5 +1,6 @@
 {
-  "sites": [{
+  "sites": [
+    {
       "name": "TG搜 | PAN",
       "type": 3,
       "api": "csp_tgs",
