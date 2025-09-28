@@ -18,12 +18,6 @@
             "type": 3,
             "api": "csp_pornhub",
             "ext": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/pornhub.js"
-        },
-        {
-            "name": "jable",
-            "type": 3,
-            "api": "csp_jable",
-            "ext": "https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/jable.js"
         }
     ]
 }
