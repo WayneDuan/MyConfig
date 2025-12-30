@@ -1,33 +1,32 @@
 /**
- * Loon 运营商自动切换脚本 (修复版)
- * 使用 Loon 官方支持的 $info 对象获取网络信息
+ * Loon 运营商自动切换脚本 (官方 API 适配版)
  */
 
-// 1. 解析 Argument
-const args = {};
+// 1. 解析参数
+let args = {};
 if (typeof $argument !== "undefined" && $argument) {
+    // 自动处理空格并解析
     $argument.split("&").forEach(item => {
-        const [key, value] = item.split("=");
-        args[key] = value;
+        let pair = item.split("=");
+        if (pair.length === 2) {
+            args[pair[0].trim()] = pair[1].trim();
+        }
     });
 }
 
+// 获取配置参数
 const groupName = args.group || "手动选择";
 const CMCC_Node = args.cmcc || "移动专线";
 const CU_Node = args.cu || "联通专线";
 const CT_Node = args.ct || "电信专线";
 const Default_Node = args.default || "自动选择";
 
-// 2. 获取网络信息 (Loon 使用 $info.network)
-const info = $info;
-const network = info.network;
+// 2. 获取 Loon 网络信息
+// 根据官网文档，$info 包含当前网络状态
+const networkInfo = (typeof $info !== "undefined") ? $info.network : null;
 
-console.log("Loon Network Info: " + JSON.stringify(network));
-
-// 3. 判断是否为蜂窝网络并获取 MNC
-// network.cellular 可能在某些环境下为 null，需要安全访问
-if (network && network.cellular) {
-    const mnc = network.cellular.mnc; // 移动网络代码
+if (networkInfo && networkInfo.cellular) {
+    const mnc = networkInfo.cellular.mnc;
     let targetNode = Default_Node;
     let carrierName = "未知";
 
@@ -43,16 +42,17 @@ if (network && network.cellular) {
         carrierName = "中国电信";
     }
 
-    // 4. 执行切换
+    // 3. 执行切换 (Loon 的选组 API)
     const success = $configuration.selectProxy(groupName, targetNode);
     
     if (success) {
-        $notification.post("Loon 自动切换", `检测到${carrierName} (MNC: ${mnc})`, `策略组[${groupName}]已切换至：${targetNode}`);
+        $notification.post("Loon 自动切换", `检测到${carrierName}`, `策略组[${groupName}] -> ${targetNode}`);
     } else {
-        console.log(`切换失败：请检查策略组[${groupName}]或节点[${targetNode}]是否存在`);
+        // 如果失败，可能是策略组或节点名没对上
+        console.log(`[Error] 切换失败。请检查：\n1. 策略组名是否为: ${groupName}\n2. 节点名是否为: ${targetNode}`);
     }
 } else {
-    console.log("非蜂窝网络或无法读取运营商信息，脚本跳过");
+    console.log("当前非蜂窝网络或尚未获取到网络信息。");
 }
 
 $done();
