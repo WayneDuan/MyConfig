@@ -1,0 +1,15 @@
+#!name = 运营商自动切换节点
+#!desc = 当蜂窝网络环境变化时，根据 SIM 卡运营商 (MCC/MNC) 自动切换指定策略组下的节点。
+#!author = Gemini
+#!icon = https://raw.githubusercontent.com/Loon0x00/Loon-ExampleConfig/master/Icon/General.png
+#!date = 2025-12-30
+
+[Rule]
+# 这里可以留空，主要依靠脚本触发
+
+[Script]
+# 监听网络切换事件
+network-changed script-path=https://raw.githubusercontent.com/your_path/carrier_switch.js, tag=运营商自动切换, argument={"group":"手动选择","cmcc":"移动专线","cu":"联通专线","ct":"电信专线","default":"自动选择"}
+
+[Mitm]
+# 无需 Mitm
