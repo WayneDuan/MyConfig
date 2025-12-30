@@ -8,8 +8,6 @@
 # 这里可以留空，主要依靠脚本触发
 
 [Script]
-# 监听网络切换事件
-network-changed script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/refs/heads/main/carrier_switch/carrier_switch.js, tag=运营商自动切换, argument=group=手动选择&cmcc=移动节点&cu=联通节点&ct=电信节点&default=自动选择
-
+network-changed script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/refs/heads/main/carrier_switch/carrier_switch.js, tag=运营商自动切换, argument=group=手动选择&cmcc=移动专线&cu=联通专线&ct=电信专线&default=自动选择
 [Mitm]
 # 无需 Mitm
