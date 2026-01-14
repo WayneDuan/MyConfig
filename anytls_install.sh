@@ -12,7 +12,7 @@ echo -e "${GREEN}正在开始安装 AnyTLS-Go...${NC}"
 # 1. 检查权限
 [[ $EUID -ne 0 ]] && echo -e "${RED}错误：请使用 root 用户运行！${NC}" && exit 1
 
-# 2. 安装必要依赖 (增加 unzip)
+# 2. 安装必要依赖
 if ! command -v unzip &> /dev/null || ! command -v curl &> /dev/null; then
     apt update && apt install -y curl unzip || yum install -y curl unzip
 fi
@@ -25,13 +25,12 @@ case $ARCH in
     *) echo -e "${RED}不支持的架构: $ARCH${NC}"; exit 1 ;;
 esac
 
-# 4. 获取最新版本并下载 (修复解析逻辑)
+# 4. 获取最新版本并下载
 echo -e "正在获取最新版本信息..."
-# 匹配 anytls_xxx_linux_amd64.zip 格式
 LATEST_URL=$(curl -s https://api.github.com/repos/anytls/anytls-go/releases/latest | grep "browser_download_url" | grep "linux_${TAG_ARCH}.zip" | cut -d '"' -f 4)
 
 if [ -z "$LATEST_URL" ]; then
-    echo -e "${RED}错误：无法解析下载链接。可能是 API 频率受限或文件名格式变化。${NC}"
+    echo -e "${RED}错误：无法解析下载链接。${NC}"
     exit 1
 fi
 
@@ -41,16 +40,14 @@ curl -L -o /tmp/anytls.zip "$LATEST_URL"
 # 5. 解压安装
 mkdir -p /tmp/anytls_bin
 unzip -o /tmp/anytls.zip -d /tmp/anytls_bin
-
-# 寻找解压后的可执行文件 (项目名可能是 anytls-server)
-find /tmp/anytls_bin -name "anytls-server" -exec mv {} /usr/local/bin/anytls-server \;
+mv /tmp/anytls_bin/anytls-server /usr/local/bin/anytls-server
 chmod +x /usr/local/bin/anytls-server
 rm -rf /tmp/anytls.zip /tmp/anytls_bin
 
-# 6. 配置参数
+# 6. 配置参数 (修复了此处的 fi 语法错误)
 read -p "请输入服务监听端口 (默认 8443): " LISTEN_PORT
 LISTEN_PORT=${LISTEN_PORT:-8443}
-read -p "请输入连接密码: " PASSWORD
+read -p "请输入连接密码 (回车随机生成): " PASSWORD
 if [ -z "$PASSWORD" ]; then
     PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12)
 fi
