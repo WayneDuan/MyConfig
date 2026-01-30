@@ -1,42 +1,41 @@
 /**
- * Surge 自动切换策略 (基于 IPv6 判定 + Wi-Fi 排除版)
- * 逻辑：
- * 1. 连着 Wi-Fi 时：不执行动作，保持用户手动选定的策略。
- * 2. 蜂窝数据下：有 IPv6 则判为国内卡（代理），无 IPv6 则判为国外卡（直连）。
+ * Surge 自动切换策略 (兼容性最终版)
+ * 逻辑：蜂窝网络下，有 IPv6 判定为国内卡，无 IPv6 判定为国外卡。Wi-Fi 下跳过。
  */
 
 function main() {
     const proxyGroupName = "节点选择"; 
     const targetPolicy = "香港节点"; 
 
-    // 获取 Wi-Fi 信息
+    // 1. Wi-Fi 环境拦截
     let ssid = $network?.wifi?.ssid;
-    
-    // 1. 如果 SSID 存在，说明在 Wi-Fi 环境下，直接退出
     if (ssid) {
-        console.log(`当前处于 Wi-Fi 网络 (${ssid})，跳过自动切换`);
+        console.log(`当前处于 Wi-Fi (${ssid})，保持原策略`);
         return;
     }
 
-    // 2. 蜂窝网络下的 IPv6 判定逻辑
-    let hasV6 = ($network && $network.v6 && $network.v6.primaryAddress) ? true : false;
-    let v4Addr = $network && $network.v4 ? $network.v4.primaryAddress : "N/A";
+    // 2. 蜂窝网络数据获取
+    // 漫游卡通常无 IPv6
+    let hasV6 = ($network?.v6?.primaryAddress) ? true : false;
+    let v4Addr = $network?.v4?.primaryAddress || "N/A";
 
-    console.log(`蜂窝网络检测: IPv4=${v4Addr}, HasIPv6=${hasV6}`);
+    console.log(`网络检测: IPv4=${v4Addr}, HasIPv6=${hasV6}`);
 
-    if (v4Addr === "N/A") {
-        console.log("未检测到有效蜂窝网络 IP，跳过本次切换");
-        return;
-    }
+    if (v4Addr === "N/A") return;
 
-    if (!hasV6) {
-        // 无 IPv6 -> 判定为 3HK 等国外漫游卡
-        $surgetool.setSelectGroupPolicy(proxyGroupName, "DIRECT");
-        $notification.post("Surge 自动化", "切换至国外卡 (无 IPv6)", "策略：DIRECT");
-    } else {
-        // 有 IPv6 -> 判定为国内运营商卡
-        $surgetool.setSelectGroupPolicy(proxyGroupName, targetPolicy);
-        $notification.post("Surge 自动化", "切换至国内卡 (有 IPv6)", `策略：${targetPolicy}`);
+    // 3. 执行切换 (改用 $surge 提高兼容性)
+    try {
+        if (!hasV6) {
+            // 无 IPv6 -> 国外卡 (如 3HK 漫游)
+            $surge.setSelectGroupPolicy(proxyGroupName, "DIRECT");
+            $notification.post("Surge 自动化", "检测到国外卡", "已自动切换至：DIRECT");
+        } else {
+            // 有 IPv6 -> 国内运营商卡
+            $surge.setSelectGroupPolicy(proxyGroupName, targetPolicy);
+            $notification.post("Surge 自动化", "检测到国内卡", `已自动切换至：${targetPolicy}`);
+        }
+    } catch (e) {
+        console.log("切换策略失败: " + e);
     }
 }
 
