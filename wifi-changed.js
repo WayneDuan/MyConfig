@@ -1,45 +1,32 @@
 /**
- * Surge 自动切换策略 (基于 IP 归属地 - 增强版)
+ * Surge 自动切换策略 (内置变量版)
  * 事件: network-changed
  */
 
-async function main() {
+function main() {
     const proxyGroupName = "节点选择"; 
     const targetPolicy = "香港节点"; 
 
-    // 1. 等待网络稳定 (延迟 2 秒执行，避开切换瞬间的断网)
-    await new Promise(r => setTimeout(r, 2000));
+    // 直接读取 Surge 内置的地理位置数据
+    // 注意：Surge 的地理位置信息可能在网络切换后几秒内更新
+    let countryCode = $network.location ? $network.location.countryCode : "";
 
-    let countryCode = "";
+    console.log("Surge 内置国家代码: " + countryCode);
 
-    // 2. 优先通过 API 获取 IP 归属地 (比内置 location 更准)
-    try {
-        let res = await $http.get({
-            url: "https://api.mcloc.cn/ip", // 一个极简的 IP 地理位置 API
-            timeout: 5000
-        });
-        // 假设返回格式包含 country_code 或直接是国家代码，这里以 myip.com 逻辑为例
-        // 如果该 API 不可用，请替换为 https://api.myip.com/
-        countryCode = JSON.parse(res.body).cc;
-    } catch (e) {
-        console.log("外部 API 查询失败，尝试使用 Surge 内置数据: " + e);
-        countryCode = $network.location.countryCode;
-    }
-
-    console.log("检测到出口国家代码: " + countryCode);
-
-    // 3. 执行切换逻辑
     if (countryCode && countryCode !== "CN") {
-        // 非中国大陆 IP -> 切换至直连
+        // 境外 IP -> 直连
         $surgetool.setSelectGroupPolicy(proxyGroupName, "DIRECT");
-        $notification.post("Surge 自动化", "境外网络 (" + countryCode + ")", "已切换至：DIRECT");
+        $notification.post("Surge 自动化", "检测到境外出口 (" + countryCode + ")", "策略已切换至：DIRECT");
     } else if (countryCode === "CN") {
-        // 中国大陆 IP -> 切换至香港节点
+        // 境内 IP -> 代理
         $surgetool.setSelectGroupPolicy(proxyGroupName, targetPolicy);
-        $notification.post("Surge 自动化", "境内网络 (CN)", "已切换至：" + targetPolicy);
+        $notification.post("Surge 自动化", "检测到境内出口 (CN)", "策略已切换至：" + targetPolicy);
     } else {
-        console.log("未能获取到有效的国家代码，不执行切换");
+        // 如果国家代码为空，通常是因为网络尚未完全连接
+        console.log("国家代码为空，跳过本次切换");
     }
 }
 
-main().finally(() => $done());
+// 这里的 $done() 必须在同步逻辑末尾
+main();
+$done();
