@@ -1,6 +1,6 @@
 
-#!name=切换wifi到全局模式
-#!desc=切换wifi到全局模式
+#!name=网络切换自动切换节点
+#!desc=网络切换自动切换节点
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
