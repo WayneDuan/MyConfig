@@ -4,4 +4,4 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
 
 [Script]
-wifi切换模式 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/main/wifi-changed.js
+wifi切换模式 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/refs/heads/main/wifi-changed.js
