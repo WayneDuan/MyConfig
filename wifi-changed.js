@@ -1,32 +1,39 @@
 /**
- * Surge 自动切换策略 (内置变量版)
+ * Surge 自动切换策略 (重试增强版)
  * 事件: network-changed
  */
 
-function main() {
+async function main() {
     const proxyGroupName = "节点选择"; 
     const targetPolicy = "香港节点"; 
+    let maxTries = 10; // 最多尝试 10 次
+    let currentTry = 0;
 
-    // 直接读取 Surge 内置的地理位置数据
-    // 注意：Surge 的地理位置信息可能在网络切换后几秒内更新
-    let countryCode = $network.location ? $network.location.countryCode : "";
+    while (currentTry < maxTries) {
+        currentTry++;
+        // 直接读取 Surge 内置的地理位置数据
+        let countryCode = $network.location ? $network.location.countryCode : "";
+        
+        console.log(`第 ${currentTry} 次检测，国家代码: ${countryCode}`);
 
-    console.log("Surge 内置国家代码: " + countryCode);
+        if (countryCode) {
+            if (countryCode !== "CN") {
+                // 境外 IP (如 3HK 漫游显示的 HK)
+                $surgetool.setSelectGroupPolicy(proxyGroupName, "DIRECT");
+                $notification.post("Surge 自动化", `检测到境外网络 (${countryCode})`, "策略已切换至：DIRECT");
+            } else {
+                // 境内 IP (CN)
+                $surgetool.setSelectGroupPolicy(proxyGroupName, targetPolicy);
+                $notification.post("Surge 自动化", "检测到境内网络 (CN)", `策略已切换至：${targetPolicy}`);
+            }
+            return; // 成功获取并执行，直接退出脚本
+        }
 
-    if (countryCode && countryCode !== "CN") {
-        // 境外 IP -> 直连
-        $surgetool.setSelectGroupPolicy(proxyGroupName, "DIRECT");
-        $notification.post("Surge 自动化", "检测到境外出口 (" + countryCode + ")", "策略已切换至：DIRECT");
-    } else if (countryCode === "CN") {
-        // 境内 IP -> 代理
-        $surgetool.setSelectGroupPolicy(proxyGroupName, targetPolicy);
-        $notification.post("Surge 自动化", "检测到境内出口 (CN)", "策略已切换至：" + targetPolicy);
-    } else {
-        // 如果国家代码为空，通常是因为网络尚未完全连接
-        console.log("国家代码为空，跳过本次切换");
+        // 如果没拿到，等 1 秒再试
+        await new Promise(r => setTimeout(r, 1000));
     }
+
+    console.log("超过最大尝试次数，未能获取到有效国家代码");
 }
 
-// 这里的 $done() 必须在同步逻辑末尾
-main();
-$done();
+main().finally(() => $done());
