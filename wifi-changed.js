@@ -34,12 +34,12 @@ function main() {
             // 无 IPv6 -> 国外卡 (如 3HK 漫游)
             $surge.setSelectGroupPolicy(proxyGroupName, "DIRECT");
             $surge.setSelectGroupPolicy(proxyGroupNamechina, targetPolicy1);
-            $notification.post("Surge 自动化", "检测到国外卡", "已自动切换至：DIRECT");
+            //$notification.post("Surge 自动化", "检测到国外卡", "已自动切换至：DIRECT");
         } else {
             // 有 IPv6 -> 国内运营商卡
             $surge.setSelectGroupPolicy(proxyGroupName, targetPolicy);
             $surge.setSelectGroupPolicy(proxyGroupNamechina, "DIRECT");
-            $notification.post("Surge 自动化", "检测到国内卡", `已自动切换至：${targetPolicy}`);
+            //$notification.post("Surge 自动化", "检测到国内卡", `已自动切换至：${targetPolicy}`);
         }
     } catch (e) {
         console.log("切换策略失败: " + e);
