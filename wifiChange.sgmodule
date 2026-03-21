@@ -1,7 +1,8 @@
-
-#!name=网络切换自动切换节点
-#!desc=网络切换自动切换节点
-#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
+#!name=自动网络策略切换
+#!desc=根据网络环境自动切换策略：WiFi/国内卡切换至指定节点，国外漫游卡切换至 DIRECT。
+#!arguments=GROUP_NAME:节点选择,TARGET_POLICY:日本节点,WIFI_DEFAULT:1,V6_CHECK:1
+#!arguments-desc=GROUP_NAME: 需要操作的策略组名称\nTARGET_POLICY: 国内卡或 WiFi 下的目标节点名称\nWIFI_DEFAULT: WiFi 下是否强制切换到目标节点 (1 为是, 0 为否)\nV6_CHECK: 是否开启 IPv6 判定国外卡逻辑 (1 为开启, 0 为关闭)
 
 [Script]
-wifi切换模式 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/refs/heads/main/wifi-changed.js,argument="节点选择,日本节点"
+# 网络变化触发
+网络策略助手 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/WayneDuan/MyConfig/refs/heads/main/wifi-changed.js,argument="GROUP={{{GROUP_NAME}}}&TARGET={{{TARGET_POLICY}}}&WIFI={{{WIFI_DEFAULT}}}&V6={{{V6_CHECK}}}"
