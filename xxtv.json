@@ -3,13 +3,13 @@
         {
             "name": "MISS", 
             "type": 3, 
-            "api": "csp_miss",
+            "api": "csp_miss1",
             "ext": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/missav.js"
         },
         {
             "name": "ph",
             "type": 3,
-            "api": "csp_pornhub",
+            "api": "csp_pornhub1",
             "ext": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/pornhub.js"
         }
     ]
