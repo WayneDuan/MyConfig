@@ -9,6 +9,13 @@
       "icon": "https://missav.ai/favicon.ico",
       "jsUrl": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/missavnew.js",
       "description": "这是一个测试网站"
+    },
+    {
+      "id": "test_site_2",
+      "name": "测试网站 2",
+      "icon": "https://example.com/favicon.ico",
+       "jsUrl": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/hkdoll.js",
+      "description": "这是另一个测试网站"
     }
   ],
   "updateTime": "2026-04-02T00:00:00Z"
