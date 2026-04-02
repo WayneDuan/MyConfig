@@ -1,0 +1,15 @@
+{
+  "id": "test_sub_001",
+  "name": "测试订阅",
+  "description": "用于测试应用的示例订阅",
+  "websites": [
+    {
+      "id": "test_site_1",
+      "name": "测试网站 1",
+      "icon": "https://via.placeholder.com/100",
+      "jsUrl": "https://example.com/test.js",
+      "description": "这是一个测试网站"
+    }
+  ],
+  "updateTime": "2026-04-02T00:00:00Z"
+}
