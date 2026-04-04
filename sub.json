@@ -1,0 +1,22 @@
+{
+  "id": "test_sub_001",
+  "name": "测试订阅",
+  "description": "用于测试应用的示例订阅",
+  "websites": [
+    {
+      "id": "test_site_1",
+      "name": "MissAV",
+      "icon": "https://missav.ai/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/missavnew.js",
+      "description": "一个免费看世界的网站"
+    },
+    {
+      "id": "test_site_2",
+      "name": "姐姐",
+      "icon": "https://hongkongdollvideo.com/favicon.ico",
+       "jsUrl": "https://raw.githubusercontent.com/WayneDuan/config/refs/heads/main/hkdoll.js",
+      "description": "这是一个开心的地方"
+    }
+  ],
+  "updateTime": "2026-04-02T00:00:00Z"
+}
